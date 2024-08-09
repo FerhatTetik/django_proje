@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Bank</title>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'customer_list' %}">Customers</a></li>
+            <li><a href="{% url 'bank_list' %}">Banks</a></li>
+            <li><a href="{% url 'customer_transfer_list' %}">Customer Transfers</a></li>
+            <li><a href="{% url 'bank_transfer_list' %}">Bank Transfers</a></li>
+            <li><a href="{% url 'deposit_list' %}">Deposits</a></li>
+            <li><a href="{% url 'withdrawal_list' %}">Withdrawals</a></li>
+            <li><a href="{% url 'collection_list' %}">Collections</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Create Bank</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="bank_name">Bank Name:</label><br>
+            <input type="text" id="bank_name" name="bank_name" required><br><br>
+            <label for="branch">Branch:</label><br>
+            <input type="text" id="branch" name="branch" required><br><br>
+            <label for="account_number">Account Number:</label><br>
+            <input type="text" id="account_number" name="account_number" required><br><br>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+</body>
+</html>

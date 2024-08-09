@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="sidebar close">
+    <div class="logo-details">
+        <i class='bx bx-terminal'></i>
+        <span class="logo_name">TERMİNAL</span>
+    </div>
+    
+    <ul class="nav-links">
+        <li>
+            <a href="{% url 'index' %}">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="{% url 'index' %}">Dashboard</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">Tahsilat</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Tahsilat</a></li>
+                <li><a href="{% url 'collection_list' %}">Tahsilat Geçmişi</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="{% url 'customer_list' %}">
+                <i class='bx bx-user'></i>
+                <span class="link_name">Üyeler</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Üyeler</a></li>
+            </ul>
+        </li>
+        
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bxs-component'></i>
+                    <span class="link_name">İşlemler</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">İşlemler</a></li>
+                <li><a href="{% url 'deposit_list' %}">Para Yatırma</a></li>
+                <li><a href="{% url 'withdrawal_list' %}">Para Çekme</a></li>
+                <li><a href="{% url 'transfer_list' %}">Para Transferi</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="{% url 'bank_list' %}">
+                <i class='bx bxs-bank'></i>
+                <span class="link_name">Bankalar</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Bankalar</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="link_name">Analiz</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Analiz</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class='bx bx-line-chart'></i>
+                <span class="link_name">Raporlar</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Raporlar</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class='bx bx-cog'></i>
+                <span class="link_name">Ayarlar</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Ayarlar</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class='bx bx-support'></i>
+                <span class="link_name">Yardım</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Yardım</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="profile-details">
+                <div class="profile-content">
+                    <!--<img src="image/profile.jpg" alt="profileImg">-->
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Admin</div>
+                    <div class="job">Yönetici</div>
+                </div>
+                <i class='bx bx-log-out'></i>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+        <span class="text">Dashboard</span>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search'></i>
+        </div>
+    </div>
+</section>
+
+<div class="one"></div>
+
+<script>
+let arrow = document.querySelectorAll(".arrow");
+for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement;
+        arrowParent.classList.toggle("showMenu");
+    });
+}
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+sidebarBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});
+</script>
+</body>
+</html>
